@@ -1,6 +1,14 @@
-<div [id]="'camera-' + participantIdentity()" class="video-container">
+
+<div [class]="getContainerClasses()">
+    <video
+        #videoElement
+        [style.object-fit]="getObjectFit()"
+        autoplay
+        muted
+        playsinline>
+    </video>
+
     <div class="participant-data">
-        <p>{{ participantIdentity() + (local() ? " (You)" : "") }}</p>
+        <p>{{ participantIdentity() }}</p>
     </div>
-    <video #videoElement [id]="track().sid"></video>
 </div>

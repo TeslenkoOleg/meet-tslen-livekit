@@ -9,7 +9,15 @@ const LIVEKIT_API_SECRET = process.env.LIVEKIT_API_SECRET || "secret";
 
 const app = express();
 
-app.use(cors());
+app.use(cors(
+    {
+  origin: [
+    "http://localhost",
+    "http://localhost:5080",
+    "https://meet.t-slen.com"
+  ]
+}
+));
 app.use(express.json());
 app.use(express.raw({ type: "application/webhook+json" }));
 
