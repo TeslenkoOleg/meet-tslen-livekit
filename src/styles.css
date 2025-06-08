@@ -19,10 +19,10 @@ header {
     left: 0;
     z-index: 1;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     padding: 10px 30px;
-    background-color: #4d4d4d;
+    background-color: #fff;
 }
 
 header h1 {
@@ -32,7 +32,7 @@ header h1 {
 }
 
 header a {
-    color: #ccc;
+    color: #000000;
     text-decoration: none;
 }
 
@@ -47,7 +47,7 @@ header i {
 
 main {
     flex: 1;
-    padding: 20px;
+    padding: 10px;
 }
 
 footer {

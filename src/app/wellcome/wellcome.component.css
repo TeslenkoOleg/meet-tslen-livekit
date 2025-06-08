@@ -28,7 +28,7 @@
 #join-dialog label {
     display: block;
     margin-bottom: 10px;
-    color: #0088aa;
+    color: #121212;
     font-weight: bold;
     font-size: 20px;
 }
@@ -38,13 +38,13 @@
     padding: 8px;
     margin-bottom: 10px;
     box-sizing: border-box;
-    color: #0088aa;
+    color: #121212;
     font-weight: bold;
 }
 
 .form-control:focus {
-    color: #0088aa;
-    border-color: #0088aa;
+    color: #121212;
+    border-color: #121212;
     -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 136, 170, 0.6);
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 136, 170, 0.6);
 }
@@ -245,7 +245,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    /*height: 100vh;*/
     background: #f8f9fa;
 }
 
@@ -540,3 +540,7 @@
     height: 80px;
   }
 }
+.make-request-btn{
+      width: 100%;
+      box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
+    }

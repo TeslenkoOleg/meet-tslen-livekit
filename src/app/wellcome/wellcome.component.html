@@ -3,19 +3,20 @@
     <div id="join-dialog">
         <form [formGroup]="roomForm" (ngSubmit)="joinRoom()">
             <div class="form-group">
-                <label for="participant-name">User name</label>
+                <label for="participant-name">Your name</label>
                 <input formControlName="participantName" id="participant-name" class="form-control" type="text" />
             </div>
-            @if (!id()) {
-                <div class="form-group">
-                    <label for="room-name">Room</label>
-                    <input formControlName="roomName" id="room-name" class="form-control" type="text" />
-                </div>
-            }
-
-            <button class="btn btn-lg btn-success"
+<!--            @if (!id()) {-->
+<!--                <div class="form-group">-->
+<!--                    <label for="room-name">Room name</label>-->
+<!--                    <input formControlName="roomName" id="room-name" class="form-control" type="text" />-->
+<!--                </div>-->
+<!--            }-->
+            <button mat-stroked-button
+                    class="make-request-btn"
                     type="submit"
-                    [disabled]="!roomForm.valid">
+                    [disabled]="!roomForm.valid"
+            >
                 Join!
             </button>
         </form>

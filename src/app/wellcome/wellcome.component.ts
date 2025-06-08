@@ -17,6 +17,7 @@ import {VideoComponent} from "../video/video.component";
 import {AudioComponent} from "../audio/audio.component";
 import {NgClass} from "@angular/common";
 import {RouterLink} from "@angular/router";
+import {MatButtonModule} from "@angular/material/button";
 
 type TrackInfo = {
     trackPublication: RemoteTrackPublication;
@@ -36,6 +37,7 @@ let LIVEKIT_URL = 'wss://tslen-sihva4bl.livekit.cloud';
         AudioComponent,
         NgClass,
         RouterLink,
+        MatButtonModule
     ],
     templateUrl: './wellcome.component.html',
     styleUrl: './wellcome.component.css'
@@ -56,8 +58,8 @@ export class WellcomeComponent implements OnDestroy, OnInit {
     screenShareEnabled = signal<boolean>(false);
     microphoneEnabled = signal<boolean>(true);
     localCameraTrack = signal<LocalVideoTrack | undefined>(undefined);
-localScreenTrack = signal<LocalVideoTrack | undefined>(undefined);
-videoSize = signal<'small' | 'medium' | 'large' | 'fullscreen'>('medium');
+    localScreenTrack = signal<LocalVideoTrack | undefined>(undefined);
+    videoSize = signal<'small' | 'medium' | 'large' | 'fullscreen'>('medium');
     isFullscreen = signal<boolean>(false);
 
     mainVideoTrack = signal<VideoTrack | null>(null);
