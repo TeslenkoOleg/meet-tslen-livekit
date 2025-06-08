@@ -2,10 +2,20 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import { AccessToken, WebhookReceiver } from "livekit-server-sdk";
-
-const SERVER_PORT = process.env.SERVER_PORT || 6080;
+const fs = require('fs');
+const https = require('https');
+const express = require('express');
+const cors = require('cors');
+const { AccessToken } = require('livekit-server-sdk');
+const { WebhookReceiver } = require('livekit-server-sdk');
+require('dotenv/config');
+const SERVER_PORT = process.env.SERVER_PORT || 6443;
 const LIVEKIT_API_KEY = process.env.LIVEKIT_API_KEY || "devkey";
 const LIVEKIT_API_SECRET = process.env.LIVEKIT_API_SECRET || "secret";
+const options = {
+  key: fs.readFileSync('/etc/letsencrypt/live/meet.t-slen.com/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/meet.t-slen.com/cert.pem'),
+};
 
 const app = express();
 
@@ -56,6 +66,10 @@ app.post("/livekit/webhook", async (req, res) => {
   res.status(200).send();
 });
 
-app.listen(SERVER_PORT, () => {
-  console.log("Server started on port:", SERVER_PORT);
-});
+https.createServer(options, app).listen(SERVER_PORT, () => {
+  console.log(`Secure server started on port: ${SERVER_PORT}`);
+ });
+
+// app.listen(SERVER_PORT, () => {
+//   console.log("Server started on port:", SERVER_PORT);
+// });
