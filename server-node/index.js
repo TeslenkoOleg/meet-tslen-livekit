@@ -8,10 +8,6 @@ require('dotenv/config');
 const SERVER_PORT = process.env.SERVER_PORT || 6443;
 const LIVEKIT_API_KEY = process.env.LIVEKIT_API_KEY || "devkey";
 const LIVEKIT_API_SECRET = process.env.LIVEKIT_API_SECRET || "secret";
-const options = {
-  key: fs.readFileSync('/etc/letsencrypt/live/meet.t-slen.com/privkey.pem'),
-  cert: fs.readFileSync('/etc/letsencrypt/live/meet.t-slen.com/cert.pem'),
-};
 
 const app = express();
 
@@ -62,10 +58,18 @@ app.post("/livekit/webhook", async (req, res) => {
   res.status(200).send();
 });
 
-https.createServer(options, app).listen(SERVER_PORT, () => {
-  console.log(`Secure server started on port: ${SERVER_PORT}`);
- });
 
-// app.listen(SERVER_PORT, () => {
-//   console.log("Server started on port:", SERVER_PORT);
-// });
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(SERVER_PORT, () => {
+      console.log("Server started on port:", SERVER_PORT);
+    });
+} else {
+    const options = {
+      key: fs.readFileSync('/etc/letsencrypt/live/meet.t-slen.com/privkey.pem'),
+      cert: fs.readFileSync('/etc/letsencrypt/live/meet.t-slen.com/cert.pem'),
+    };
+    https.createServer(options, app).listen(SERVER_PORT, () => {
+      console.log(`Secure server started on port: ${SERVER_PORT}`);
+     });
+}
+

@@ -8,40 +8,6 @@ import { NgClass } from '@angular/common';
     imports: [NgClass],
     templateUrl: './video.component.html',
     styles: [`
-        .video-container {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            background: #000;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .main-video {
-            min-height: 300px;
-        }
-
-        .preview-video {
-            height: 100%;
-        }
-
-        .remote-video {
-            height: 200px;
-            margin-bottom: 1rem;
-        }
-
-        /* New thumbnail styles */
-        .thumbnail-video {
-            height: 120px;
-            width: 160px;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: transform 0.2s ease;
-        }
-
-        .thumbnail-video:hover {
-            transform: scale(1.02);
-        }
 
         .participant-data {
             position: absolute;
@@ -59,7 +25,7 @@ import { NgClass } from '@angular/common';
         .thumbnail-video .participant-data {
             font-size: 0.7rem;
             padding: 2px 6px;
-            bottom: 4px;
+            /*bottom: 4px;*/
             left: 4px;
         }
 

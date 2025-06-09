@@ -75,6 +75,7 @@ export class WellcomeComponent implements OnDestroy, OnInit {
             this.roomForm.patchValue({ roomName: this.id() });
                     // this.joinRoom()
         }
+        this.setVideoSize('large');
     }
 
     configureUrls() {
